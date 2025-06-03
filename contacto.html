@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Cursada 2025</title>
+  <link rel="stylesheet" href="estilos.css">
+  <!-- Tailwind para mejorar los estilos rápidamente -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Menú de navegación -->
+  <header class="bg-red-700 text-white p-4">
+    <nav class="flex justify-center gap-4">
+      <a href="index.html" class="hover:text-yellow-300">Inicio</a>
+      <a href="avisos.html" class="hover:text-yellow-300">Avisos</a>
+      <a href="sobremi.html" class="hover:text-yellow-300">Sobre mí</a>
+      <a href="materias2025.html" class="hover:text-yellow-300">Materias 2025</a>
+      <a href="contacto.html" class="hover:text-yellow-300">Contacto</a>
+      <a href="diseño_desarrollo_web.html" class="hover:text-yellow-300">Diseño y desarrollo</a>
+    </nav>
+  </header>
+
+  <main class="max-w-2xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center mb-6 text-red-800">Formulario de contacto</h1>
+
+    <!-- Formulario de contacto -->
+    <form id="formContacto" class="bg-white p-6 rounded shadow-md">
+      <!-- Campo Nombre -->
+      <div class="mb-4">
+        <label for="nombre" class="block font-semibold mb-2">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="w-full border p-2 rounded focus:ring-2 focus:ring-red-700" required>
+      </div>
+
+      <!-- Campo Correo -->
+      <div class="mb-4">
+        <label for="correo" class="block font-semibold mb-2">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" class="w-full border p-2 rounded focus:ring-2 focus:ring-red-700" required>
+      </div>
+
+      <!-- Campo Asunto -->
+      <div class="mb-4">
+        <label for="asunto" class="block font-semibold mb-2">Asunto:</label>
+        <input type="text" id="asunto" name="asunto" class="w-full border p-2 rounded focus:ring-2 focus:ring-red-700" required>
+      </div>
+
+      <!-- Campo Mensaje -->
+      <div class="mb-4">
+        <label for="mensaje" class="block font-semibold mb-2">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" class="w-full border p-2 rounded focus:ring-2 focus:ring-red-700" required></textarea>
+      </div>
+
+      <!-- Botón Enviar -->
+      <button type="submit" class="bg-red-700 text-white px-6 py-2 rounded hover:bg-red-800 w-full">Enviar</button>
+
+      <!-- Mensaje de Resultado -->
+      <p id="mensajeResultado" class="mt-4 text-center text-lg"></p>
+    </form>
+  </main>
+
+  <footer class="bg-black text-white text-center p-4 mt-10">
+    <p>&copy; 2025 Martín Moneta</p>
+  </footer>
+
+  <!-- Script de Validación -->
+  <script>
+    document.getElementById('formContacto').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Obtener valores
+      const nombre = document.getElementById('nombre').value.trim();
+      const correo = document.getElementById('correo').value.trim();
+      const asunto = document.getElementById('asunto').value.trim();
+      const mensaje = document.getElementById('mensaje').value.trim();
+      const mensajeResultado = document.getElementById('mensajeResultado');
+
+      // Validación de campos vacíos
+      if (nombre === '' || correo === '' || asunto === '' || mensaje === '') {
+        mensajeResultado.textContent = 'Por favor, complete todos los campos.';
+        mensajeResultado.className = 'text-red-600';
+        return;
+      }
+
+      // Validación de correo electrónico
+      const regexCorreo = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!regexCorreo.test(correo)) {
+        mensajeResultado.textContent = 'Por favor, ingrese un correo electrónico válido.';
+        mensajeResultado.className = 'text-red-600';
+        return;
+      }
+
+      // Si todo es correcto
+      mensajeResultado.textContent = `Gracias por tu contacto, ${nombre}. En breve le estaré respondiendo.`;
+      mensajeResultado.className = 'text-green-600';
+
+      // Limpiar formulario
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
