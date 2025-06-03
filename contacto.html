@@ -3,29 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto | Cursada 2025</title>
-  <link rel="stylesheet" href="estilos.css">
-  <!-- Tailwind para mejorar los estilos rápidamente -->
+  <title>Formulario de Contacto</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <!-- Menú de navegación -->
-  <header class="bg-red-700 text-white p-4">
-    <nav class="flex justify-center gap-4">
-      <a href="index.html" class="hover:text-yellow-300">Inicio</a>
-      <a href="avisos.html" class="hover:text-yellow-300">Avisos</a>
-      <a href="sobremi.html" class="hover:text-yellow-300">Sobre mí</a>
-      <a href="materias2025.html" class="hover:text-yellow-300">Materias 2025</a>
-      <a href="contacto.html" class="hover:text-yellow-300">Contacto</a>
-      <a href="diseño_desarrollo_web.html" class="hover:text-yellow-300">Diseño y desarrollo</a>
-    </nav>
-  </header>
-
+  <!-- Formulario de contacto -->
   <main class="max-w-2xl mx-auto p-6">
     <h1 class="text-3xl font-bold text-center mb-6 text-red-800">Formulario de contacto</h1>
 
-    <!-- Formulario de contacto -->
     <form id="formContacto" class="bg-white p-6 rounded shadow-md">
       <!-- Campo Nombre -->
       <div class="mb-4">
@@ -54,16 +40,12 @@
       <!-- Botón Enviar -->
       <button type="submit" class="bg-red-700 text-white px-6 py-2 rounded hover:bg-red-800 w-full">Enviar</button>
 
-      <!-- Mensaje de Resultado -->
+      <!-- Mensaje Resultado -->
       <p id="mensajeResultado" class="mt-4 text-center text-lg"></p>
     </form>
   </main>
 
-  <footer class="bg-black text-white text-center p-4 mt-10">
-    <p>&copy; 2025 Martín Moneta</p>
-  </footer>
-
-  <!-- Script de Validación -->
+  <!-- Validación con JavaScript -->
   <script>
     document.getElementById('formContacto').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -90,8 +72,8 @@
         return;
       }
 
-      // Si todo es correcto
-      mensajeResultado.textContent = `Gracias por tu contacto, ${nombre}. En breve le estaré respondiendo.`;
+      // Mensaje de éxito con el nombre
+      mensajeResultado.textContent = `Gracias por su contacto, ${nombre}. En breve le estaré respondiendo.`;
       mensajeResultado.className = 'text-green-600';
 
       // Limpiar formulario
